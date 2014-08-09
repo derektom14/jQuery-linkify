@@ -52,6 +52,11 @@ $(window).on('load', function () {
 	});
 });
 
+$.fn.unlinkify = function () {
+    this.find('a.linkified').contents().unwrap(); // completely removes <a> tags around all linkified links
+    return this;
+}
+
 // Setup click events for linkified elements
 $('body').on('click', '.linkified', function () {
 	var $link = $(this),
